@@ -7,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     Vector2 move;
     public float movementSpeed;
-    private bool isFacingRight = true;
-    private bool isFacingUp = false;
+    public bool isFacingRight = true;
+    public bool isFacingUp = false;
+    public bool xAxisZero;
 
     //Jumping
     public float jumpingPower;
@@ -39,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
         Movement();
         Flip();
-        Attacking();
     }
 
     void Movement()
@@ -61,6 +61,14 @@ public class PlayerMovement : MonoBehaviour
             isFacingUp = false;
             animator.SetBool("isFacingUp", false);
         }
+        if(move.x == 0)
+        {
+            xAxisZero = true;
+        }
+        else
+        {
+            xAxisZero = false;
+        }
     }
 
     //Horizontal Character Flip
@@ -70,21 +78,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isFacingRight = !isFacingRight;
             transform.Rotate(0f, 180f, 0f);
-        }
-    }
-
-    private float AttackCounter = 0f;
-    private float AttackCooldown = 0.8f;
-    void Attacking()
-    {
-        if (Input.GetKey(KeyCode.Space) && Time.time > AttackCounter + AttackCooldown)
-        {
-            AttackCounter = Time.time;
-            animator.SetBool("isAttacking", true);
-        }
-        else
-        {
-            animator.SetBool("isAttacking", false);
         }
     }
 }
