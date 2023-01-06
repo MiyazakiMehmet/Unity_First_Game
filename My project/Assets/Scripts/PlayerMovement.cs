@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        //Movement
         rb.velocity = new Vector2(move.x * movementSpeed * Time.deltaTime, rb.velocity.y);
         rb.velocity = new Vector2(rb.velocity.x, move.y * movementSpeed * Time.deltaTime);
     }
@@ -35,9 +36,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw ("Vertical"));
+
+        Movement();
+        Flip();
+        Attacking();
+    }
+
+    void Movement()
+    {
         animator.SetFloat("xVelocity", Mathf.Abs(move.x));
         animator.SetFloat("yVelocity", move.y);
-        if (Input.GetKey(KeyCode.W)){
+        if (Input.GetKey(KeyCode.W))
+        {
             isFacingUp = true;
             animator.SetBool("isFacingUp", true);
         }
@@ -46,13 +56,11 @@ public class PlayerMovement : MonoBehaviour
             isFacingUp = false;
             animator.SetBool("isFacingUp", false);
         }
-        if(isFacingUp && Mathf.Abs(move.x) > 0.1f && !Input.GetKey(KeyCode.W))
+        if (isFacingUp && Mathf.Abs(move.x) > 0.1f && !Input.GetKey(KeyCode.W))
         {
             isFacingUp = false;
             animator.SetBool("isFacingUp", false);
         }
-
-        Flip();
     }
 
     //Horizontal Character Flip
@@ -61,9 +69,22 @@ public class PlayerMovement : MonoBehaviour
         if(isFacingRight && move.x < 0.1f || !isFacingRight && move.x > 0.1f)
         {
             isFacingRight = !isFacingRight;
-            Vector3 LocalScale = transform.localScale;
-            LocalScale.x *= -1f;
-            transform.localScale = LocalScale;
+            transform.Rotate(0f, 180f, 0f);
+        }
+    }
+
+    private float AttackCounter = 0f;
+    private float AttackCooldown = 0.8f;
+    void Attacking()
+    {
+        if (Input.GetKey(KeyCode.Space) && Time.time > AttackCounter + AttackCooldown)
+        {
+            AttackCounter = Time.time;
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
         }
     }
 }
