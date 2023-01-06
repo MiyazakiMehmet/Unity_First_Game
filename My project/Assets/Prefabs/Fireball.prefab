@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6390551267584679577}
+  playerMovement: {fileID: 0}
   bulletSpeed: 10
 --- !u!212 &1989426151408309886
 SpriteRenderer:
