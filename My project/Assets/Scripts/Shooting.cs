@@ -8,14 +8,7 @@ public class Shooting : MonoBehaviour
     Rigidbody2D rbFireball;
     public Transform FirePoint;
     public GameObject FireballPrefab;
-    
-
-
     public float fireballSpeed;
-
-    void Start()
-    {
-    }
 
     void Update()
     {

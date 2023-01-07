@@ -6,7 +6,7 @@ public class EnemyFollow : MonoBehaviour
 {
     public Animator animator;
     public float movementSpeed;
-    private bool detected = false;
+    public bool detected = false;
     public Transform target;
     public float minimumDistance;
     public float maximumDistance;
