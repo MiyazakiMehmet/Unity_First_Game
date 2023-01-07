@@ -32,4 +32,6 @@ public class Shooting : MonoBehaviour
         rbFireball.AddForce(FirePoint.up * fireballSpeed, ForceMode2D.Impulse);
     }
 
+
+
 }
