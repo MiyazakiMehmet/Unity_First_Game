@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Transform Rod;
     public Camera cam;
     Vector2 move;
-    Vector2 mousePos;
+    public Vector3 mousePos;
     //Rod
     Vector3 newPosition;
     
