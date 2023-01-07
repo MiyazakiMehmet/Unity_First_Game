@@ -5,19 +5,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    public Transform Rod;
+    public Camera cam;
     Vector2 move;
+    Vector2 mousePos;
+    //Rod
+    Vector3 newPosition;
+    
     public float movementSpeed;
     public bool isFacingRight = true;
     public bool isFacingUp = false;
-    public bool xAxisZero;
-
-    //Jumping
-    public float jumpingPower;
-    public Transform GroundCheck;
-    [SerializeField] private float GroundCheckRadius;
-    [SerializeField] private LayerMask GroundLayer;
-    private bool isGrounded;
-
+ 
     //Animation
     public Animator animator;
 
@@ -25,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //Rod x Axis Reverse
+        newPosition = Rod.transform.localPosition;
+        newPosition.x *= -1f;
+
     }
 
     void FixedUpdate()
@@ -38,46 +40,33 @@ public class PlayerMovement : MonoBehaviour
     {
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw ("Vertical"));
 
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);    
+
         Movement();
-        Flip();
     }
 
     void Movement()
     {
-        animator.SetFloat("xVelocity", Mathf.Abs(move.x));
-        animator.SetFloat("yVelocity", move.y);
-        if (Input.GetKey(KeyCode.W))
+        if (mousePos.y > transform.position.y)
         {
             isFacingUp = true;
             animator.SetBool("isFacingUp", true);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (mousePos.y <= transform.position.y)
         {
             isFacingUp = false;
             animator.SetBool("isFacingUp", false);
         }
-        if (isFacingUp && Mathf.Abs(move.x) > 0.1f && !Input.GetKey(KeyCode.W))
+
+        //Changing x Axis of Rod
+        if(mousePos.x < transform.position.x)
         {
-            isFacingUp = false;
-            animator.SetBool("isFacingUp", false);
-        }
-        if(move.x == 0)
-        {
-            xAxisZero = true;
+
+            Rod.transform.localPosition = newPosition;
         }
         else
         {
-            xAxisZero = false;
-        }
-    }
-
-    //Horizontal Character Flip
-    void Flip()
-    {
-        if(isFacingRight && move.x < 0.1f || !isFacingRight && move.x > 0.1f)
-        {
-            isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
+            Rod.transform.localPosition = -newPosition;
         }
     }
 }
