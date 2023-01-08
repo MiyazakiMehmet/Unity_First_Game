@@ -11,7 +11,8 @@ public class FireballScript : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))
         {
-            Instantiate(particle, transform.position, Quaternion.identity);
+            GameObject Effect = Instantiate(particle, transform.position, Quaternion.identity);
+            Destroy(Effect, 0.4f);
             Destroy(gameObject);
         }
     }
