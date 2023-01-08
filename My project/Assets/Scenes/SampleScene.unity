@@ -161,18 +161,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1061184746, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
+      propertyPath: Character
+      value: 
+      objectReference: {fileID: 1631742471}
+    - target: {fileID: 1061184746, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1631742470}
     - target: {fileID: 1732397892337446550, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1631742471}
-    - target: {fileID: 2396739783741068418, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.626
-      objectReference: {fileID: 0}
-    - target: {fileID: 2396739783741068418, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.256
-      objectReference: {fileID: 0}
     - target: {fileID: 8083122377917830376, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -520,30 +520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1061184743 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6481346559784131182, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
-  m_PrefabInstance: {fileID: 342238179}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1061184746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061184743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ba29d9d0e6cd64eb6385ca6d29ba53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1631742470}
-  enemyFollow: {fileID: 1907031985}
-  bulletSpeed: 40
-  BulletPoint: {fileID: 1593647481}
-  BulletPrefab: {fileID: 3242861179336191264, guid: 74e710aee0d8a8448a6b5bf28aa753be, type: 3}
-  Character: {fileID: 1631742471}
-  shootCooldown: 1
 --- !u!1 &1163567638
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,11 +725,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1593647481 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2396739783741068418, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
-  m_PrefabInstance: {fileID: 342238179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623807311
 GameObject:
   m_ObjectHideFlags: 0
@@ -8508,6 +8479,7 @@ GameObject:
   - component: {fileID: 1631742468}
   - component: {fileID: 1631742467}
   - component: {fileID: 1631742466}
+  - component: {fileID: 1631742472}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8660,6 +8632,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1631742472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631742465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f560d74a0861b3b46a1f1092d9f02360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1879945140
 GameObject:
   m_ObjectHideFlags: 0
@@ -9515,14 +9499,3 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: -0.01}
   m_MaximumTileChangeCount: 500
   m_ExtrusionFactor: 0
---- !u!114 &1907031985 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1732397892337446550, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
-  m_PrefabInstance: {fileID: 342238179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 977cd71b33ba362498c5f243d5a15822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

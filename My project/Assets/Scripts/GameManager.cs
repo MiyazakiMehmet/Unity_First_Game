@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     //You can access UnitHealth instances from here
     public UnitHealth playerHealth = new UnitHealth(100, 100);
+    public UnitHealth enemyHealth = new UnitHealth(60, 60);
 
     void Awake()
     {
