@@ -135,6 +135,7 @@ MonoBehaviour:
   BulletPoint: {fileID: 2396739783741068418}
   BulletPrefab: {fileID: 3242861179336191264, guid: 74e710aee0d8a8448a6b5bf28aa753be, type: 3}
   Character: {fileID: 0}
+  attackDamage: 0
   shootCooldown: 1
 --- !u!1 &7947408219854540653
 GameObject:
@@ -184,7 +185,7 @@ GameObject:
   - component: {fileID: 3928412129640031380}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,3 +324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afac902a24736ec44a5e9cba2504d688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 0
+  attackDamage: 10

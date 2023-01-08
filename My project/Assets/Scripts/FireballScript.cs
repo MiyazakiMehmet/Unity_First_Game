@@ -5,6 +5,8 @@ using static UnityEngine.ParticleSystem;
 
 public class FireballScript : MonoBehaviour
 {
+    public int attackDamage;
+
     public GameObject particle;
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -14,6 +16,10 @@ public class FireballScript : MonoBehaviour
             GameObject Effect = Instantiate(particle, transform.position, Quaternion.identity);
             Destroy(Effect, 0.4f);
             Destroy(gameObject);
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                GameManager.gameManager.enemyHealth.DamageUnit(attackDamage);
+            }
         }
     }
 }

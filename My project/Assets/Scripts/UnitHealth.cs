@@ -32,4 +32,12 @@ public class UnitHealth
             currentHealth -= damageAmount;
         }
     }
+
+    public void HealUnit(int healAmount)
+    {
+        if(currentHealth > 0)
+        {
+            currentHealth += healAmount;
+        }
+    }
 }

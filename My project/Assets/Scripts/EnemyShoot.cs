@@ -13,6 +13,9 @@ public class EnemyShoot : MonoBehaviour
     public Transform Character;
     private bool isFacingRight;
 
+    //AttackDamage
+    public int attackDamage;
+
     //Cooldown
     private float shootCounter = 0f;
     public float shootCooldown = 0.3f;
