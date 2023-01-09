@@ -181,8 +181,8 @@ GameObject:
   - component: {fileID: 8083122377917830382}
   - component: {fileID: 8083122377917830383}
   - component: {fileID: 1732397892337446550}
-  - component: {fileID: 4477468396728326475}
   - component: {fileID: 3928412129640031380}
+  - component: {fileID: 4477468396728326475}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -297,6 +297,20 @@ MonoBehaviour:
   minimumDistance: 4
   maximumDistance: 6
   Weapon: {fileID: 6481346559784131182}
+--- !u!114 &3928412129640031380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083122377917830376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afac902a24736ec44a5e9cba2504d688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 300
 --- !u!70 &4477468396728326475
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -313,18 +327,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.6796875, y: 1.6171875}
   m_Direction: 0
---- !u!114 &3928412129640031380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8083122377917830376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afac902a24736ec44a5e9cba2504d688, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 300
-  attackDamage: 25
