@@ -27,7 +27,7 @@ public class EnemyShoot : MonoBehaviour
             Shoot();
             Flip();
         }
-    }   
+    }
 
     void FixedUpdate()
     {

@@ -10,15 +10,19 @@ public class EnemyFollow : MonoBehaviour
     public Transform target;
     public float minimumDistance;
     public float maximumDistance;
-
     private bool isFacingRight;
+    
+    //Weapon Shown
+    public GameObject Weapon;
+    private bool weaponShow = false;
 
     void Update()
     {
         if (Vector2.Distance(transform.position, target.position) <= maximumDistance)
         {
             detected = true;
-            animator.SetBool("Detected", true);            
+            animator.SetBool("Detected", true);
+            weaponShow = true;
         }
         if (Vector2.Distance(transform.position, target.position) > minimumDistance && detected) {
             transform.position = Vector2.MoveTowards(transform.position, target.position,
@@ -32,6 +36,7 @@ public class EnemyFollow : MonoBehaviour
         {
             Flip();
         }
+        Weapon.SetActive(weaponShow);
     }
 
     void Flip()

@@ -296,6 +296,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minimumDistance: 4
   maximumDistance: 6
+  Weapon: {fileID: 6481346559784131182}
 --- !u!70 &4477468396728326475
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -326,4 +327,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 300
-  attackDamage: 10
+  attackDamage: 25

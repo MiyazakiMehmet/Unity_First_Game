@@ -25,5 +25,9 @@ public class EnemyBehavior : MonoBehaviour
         {
             currentHealth -= damageAmount;
         }
+        else if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
