@@ -12,8 +12,8 @@ public class EnemyHealthBarScript : MonoBehaviour
 
     void Update()
     {
-        EnemyHealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position
-            + Offset);
+        //Makes Healthbar stable in one Axis
+        transform.rotation = Quaternion.identity;
     }
 
     public void SetEnemyCurrentHealth(int currentHealth, int maxHealth)
