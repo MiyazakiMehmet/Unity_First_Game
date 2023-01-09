@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class EnemyHealthBarScript : MonoBehaviour
+{
+    public Slider EnemyHealthBar;
+    public Color High;
+    public Color Low;
+    public Vector3 Offset;      
+
+    void Update()
+    {
+        EnemyHealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position
+            + Offset);
+    }
+
+    public void SetEnemyCurrentHealth(int currentHealth, int maxHealth)
+    {
+        //Shows bar only if currentHealth goes below than maxHealth
+        //EnemyHealthBar.gameObject.SetActive(currentHealth < maxHealth);
+
+        EnemyHealthBar.value = currentHealth;
+        EnemyHealthBar.maxValue = maxHealth;
+
+        EnemyHealthBar.fillRect.GetComponentInChildren<Image>().color =
+            Color.Lerp(Low, High, EnemyHealthBar.normalizedValue);
+    }
+
+
+}

@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977cd71b33ba362498c5f243d5a15822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBehavior: {fileID: 0}
   animator: {fileID: 8083122377917830382}
   movementSpeed: 2
   detected: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afac902a24736ec44a5e9cba2504d688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealthBar: {fileID: 0}
   currentHealth: 0
   maxHealth: 300
 --- !u!70 &4477468396728326475

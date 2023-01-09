@@ -14,6 +14,7 @@ public class PlayerBehavior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        healthBar.SetCurrentHealth(currentHealth, maxHealth);
     }
 
     public void PlayerTakeDamage(int damageAmount)
@@ -21,7 +22,7 @@ public class PlayerBehavior : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damageAmount;
-            healthBar.SetCurrentHealth(currentHealth);
+            healthBar.SetCurrentHealth(currentHealth, maxHealth);
         }
         else if (currentHealth <= 0)
         {

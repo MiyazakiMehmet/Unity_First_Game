@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
+    [SerializeField] private PlayerBehavior playerBehavior;
+
     public Animator animator;
     public float movementSpeed;
     public bool detected = false;
@@ -18,25 +20,36 @@ public class EnemyFollow : MonoBehaviour
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) <= maximumDistance)
+        if (playerBehavior.playerAlive)
         {
-            detected = true;
-            animator.SetBool("Detected", true);
-            weaponShow = true;
+            if (Vector2.Distance(transform.position, target.position) <= maximumDistance)
+            {
+                detected = true;
+                animator.SetBool("Detected", true);
+                weaponShow = true;
+            }
+            if (Vector2.Distance(transform.position, target.position) > minimumDistance && detected)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position,
+                    movementSpeed * Time.deltaTime);
+            }
+            else if (Vector2.Distance(transform.position, target.position) <= minimumDistance && detected)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position,
+                    -movementSpeed * Time.deltaTime);
+            }
+            if (detected)
+            {
+                Flip();
+            }
         }
-        if (Vector2.Distance(transform.position, target.position) > minimumDistance && detected) {
-            transform.position = Vector2.MoveTowards(transform.position, target.position,
-                movementSpeed * Time.deltaTime);
-        }
-        else if(Vector2.Distance(transform.position, target.position) <= minimumDistance && detected){
-            transform.position = Vector2.MoveTowards(transform.position, target.position,
-                -movementSpeed * Time.deltaTime);
-        }
-        if (detected)
+        else
         {
-            Flip();
-        }
+            animator.SetBool("Detected", false);
+            weaponShow = false; 
+        }   
         Weapon.SetActive(weaponShow);
+
     }
 
     void Flip()

@@ -132,8 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99490077}
-  - component: {fileID: 99490079}
   - component: {fileID: 99490078}
+  - component: {fileID: 99490079}
   m_Layer: 5
   m_Name: HealthBarFill
   m_TagString: Untagged
@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: Character
       value: 
       objectReference: {fileID: 1631742471}
+    - target: {fileID: 1061184746, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
+      propertyPath: playerBehavior
+      value: 
+      objectReference: {fileID: 1631742472}
     - target: {fileID: 1061184746, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
       propertyPath: playerMovement
       value: 
@@ -597,7 +601,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -930419567
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &768080890
@@ -845,6 +849,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1631742471}
     - target: {fileID: 1061184746, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
+      propertyPath: playerBehavior
+      value: 
+      objectReference: {fileID: 1631742472}
+    - target: {fileID: 1061184746, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1631742470}
@@ -852,10 +860,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1631742471}
-    - target: {fileID: 3928412129640031380, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
-      propertyPath: attackDamage
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 8083122377917830376, guid: 5734e2935e3315c4fbb478657a3d0019, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -9005,11 +9009,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1631742471}
   - component: {fileID: 1631742470}
+  - component: {fileID: 1631742472}
   - component: {fileID: 1631742469}
   - component: {fileID: 1631742468}
   - component: {fileID: 1631742467}
   - component: {fileID: 1631742466}
-  - component: {fileID: 1631742472}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9174,9 +9178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f560d74a0861b3b46a1f1092d9f02360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 99490078}
   currentHealth: 0
   maxHealth: 300
-  attackDamage: 25
+  playerAlive: 1
 --- !u!1 &1879945140
 GameObject:
   m_ObjectHideFlags: 0

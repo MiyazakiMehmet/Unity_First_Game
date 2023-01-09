@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    [SerializeField] private EnemyHealthBarScript enemyHealthBar;
+
     public int currentHealth;
     public int maxHealth = 300;
 
@@ -11,6 +13,7 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        enemyHealthBar.SetEnemyCurrentHealth(currentHealth, maxHealth);
     }
 
     public void EnemyTakeDamage(int damageAmount)
@@ -18,6 +21,8 @@ public class EnemyBehavior : MonoBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damageAmount;
+            enemyHealthBar.SetEnemyCurrentHealth(currentHealth, maxHealth);
+            
         }
         else if (currentHealth <= 0)
         {
