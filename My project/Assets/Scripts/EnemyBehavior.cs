@@ -5,23 +5,25 @@ using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
     public int currentHealth;
-    public int maxHealth;
-    public int attackDamage;
+    public int maxHealth = 300;
+    public int attackDamage = 25;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        SetInitialHealth(GameManager.gameManager.enemyHealth.health);
+        currentHealth = maxHealth;
     }
 
     void Update()
     {
     }
 
-    void SetInitialHealth(int initialHealth)
+    public void EnemyTakeDamage(int damageAmount)
     {
-        maxHealth = initialHealth;
-        currentHealth = initialHealth;
+        if (currentHealth > 0)
+        {
+            currentHealth -= damageAmount;
+        }
     }
-
 }

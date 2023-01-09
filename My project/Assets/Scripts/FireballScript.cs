@@ -15,11 +15,11 @@ public class FireballScript : MonoBehaviour
         {
             GameObject Effect = Instantiate(particle, transform.position, Quaternion.identity);
             Destroy(Effect, 0.4f);
-            Destroy(gameObject);
             if (collision.gameObject.CompareTag("Enemy"))
             {
-                GameManager.gameManager.enemyHealth.DamageUnit(attackDamage);
+                collision.gameObject.GetComponent<EnemyBehavior>().EnemyTakeDamage(attackDamage);
             }
+            Destroy(gameObject);
         }
     }
 }

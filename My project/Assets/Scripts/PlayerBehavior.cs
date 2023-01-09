@@ -5,18 +5,13 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public int currentHealth;
-    public int maxHealth;
-    public int attackDamage;
+    public int maxHealth = 300;
+    public int attackDamage = 25;
 
     // Start is called before the first frame update
     void Start()
     {
-        SetInitialHealth(GameManager.gameManager.playerHealth.health);
+        maxHealth = currentHealth;
     }
 
-    void SetInitialHealth(int initialHealth)
-    {
-        maxHealth = initialHealth;
-        currentHealth = initialHealth;
-    }
 }
