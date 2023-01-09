@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 0}
   enemyFollow: {fileID: 1732397892337446550}
+  playerBehavior: {fileID: 0}
   bulletSpeed: 40
   BulletPoint: {fileID: 2396739783741068418}
   BulletPrefab: {fileID: 3242861179336191264, guid: 74e710aee0d8a8448a6b5bf28aa753be, type: 3}

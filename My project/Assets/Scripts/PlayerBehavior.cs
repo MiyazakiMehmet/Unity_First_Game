@@ -8,6 +8,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public int currentHealth;
     public int maxHealth;
+    public bool playerAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class PlayerBehavior : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
+            playerAlive = false;
             Destroy(gameObject);
         }
     }

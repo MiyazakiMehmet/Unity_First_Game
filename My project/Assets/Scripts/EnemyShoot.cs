@@ -6,6 +6,7 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private EnemyFollow enemyFollow;
+    [SerializeField] private PlayerBehavior playerBehavior;
     Rigidbody2D rbBullet;
     public float bulletSpeed;
     public Transform BulletPoint;
@@ -22,7 +23,7 @@ public class EnemyShoot : MonoBehaviour
 
     void Update()
     {
-        if (enemyFollow.detected)
+        if (enemyFollow.detected && playerBehavior.playerAlive)
         {
             Shoot();
             Flip();
@@ -31,7 +32,7 @@ public class EnemyShoot : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (enemyFollow.detected)
+        if (enemyFollow.detected && playerBehavior.playerAlive)
         {
             Vector3 targetDirection = Character.position - BulletPoint.position;
             float angle = Mathf.Atan2(targetDirection.y, targetDirection.x)
