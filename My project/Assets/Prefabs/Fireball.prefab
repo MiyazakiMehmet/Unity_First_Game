@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7697d5adbfa93459de0c444b3b3f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 25
+  attackDamage: 300
+  killCount: 0
   particle: {fileID: 6317866196735036986, guid: ca6e8811fa3300c48b492248817b83ed, type: 3}
 --- !u!212 &1989426151408309886
 SpriteRenderer:

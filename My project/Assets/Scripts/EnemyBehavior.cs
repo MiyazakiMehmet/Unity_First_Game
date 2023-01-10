@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    [SerializeField] private PlayerBehavior playerBehavior;
     [SerializeField] private EnemyHealthBarScript enemyHealthBar;
 
     public int currentHealth;
     public int maxHealth = 300;
+    public bool isAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +18,26 @@ public class EnemyBehavior : MonoBehaviour
         enemyHealthBar.SetEnemyCurrentHealth(currentHealth, maxHealth);
     }
 
+    void Update()
+    {
+        if(currentHealth > 0)
+        {
+            isAlive = true;
+        }
+        else
+        {
+            isAlive = false;
+            Destroy(gameObject);
+            playerBehavior.killCount++;
+        }
+    }
+
     public void EnemyTakeDamage(int damageAmount)
     {
-        if (currentHealth > 0)
+        if (isAlive)
         {
             currentHealth -= damageAmount;
             enemyHealthBar.SetEnemyCurrentHealth(currentHealth, maxHealth);
-            
-        }
-        else if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 }
