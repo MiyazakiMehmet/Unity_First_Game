@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    public static event Action playerDeath;
     [SerializeField] private HealtBarScript healthBar;
 
     public int currentHealth;
@@ -17,17 +19,21 @@ public class PlayerBehavior : MonoBehaviour
         healthBar.SetCurrentHealth(currentHealth, maxHealth);
     }
 
-    public void PlayerTakeDamage(int damageAmount)
+    void Update()
     {
-        if (currentHealth > 0)
-        {
-            currentHealth -= damageAmount;
-            healthBar.SetCurrentHealth(currentHealth, maxHealth);
-        }
-        else if (currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             playerAlive = false;
             Destroy(gameObject);
+            playerDeath?.Invoke();
+        }
+    }
+    public void PlayerTakeDamage(int damageAmount)
+    {
+        if (playerAlive)
+        {
+            currentHealth -= damageAmount;
+            healthBar.SetCurrentHealth(currentHealth, maxHealth);
         }
     }
 }
