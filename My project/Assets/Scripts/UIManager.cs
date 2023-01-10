@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject gameOverMenu;
 
-    //Actions
+    //Subscribing to Event
     void OnEnable()
     {
         PlayerBehavior.playerDeath += EnableGameOverMenu;
-    }
+    }   
 
     void OnDisable()
     {
@@ -20,5 +21,10 @@ public class UIManager : MonoBehaviour
     public void EnableGameOverMenu()
     {
         gameOverMenu.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }

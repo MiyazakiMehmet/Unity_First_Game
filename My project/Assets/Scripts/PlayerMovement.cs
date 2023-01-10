@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        EnablePlayerMovement();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         //Rod x Axis Reverse
@@ -68,5 +69,28 @@ public class PlayerMovement : MonoBehaviour
         {
             Rod.transform.localPosition = -newPosition;
         }
+    }
+
+    //Subscribing to Event
+    void OnEnable()
+    {
+        PlayerBehavior.playerDeath += DisablePlayerMovement;
+    }
+
+    void OnDisable()
+    {
+        PlayerBehavior.playerDeath -= DisablePlayerMovement;
+    }
+
+    void DisablePlayerMovement()
+    {
+        animator.enabled = false;
+        rb.bodyType = RigidbodyType2D.Static;
+    }
+
+    void EnablePlayerMovement()
+    {
+        animator.enabled = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
 }
