@@ -17,5 +17,6 @@ public class BulletScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerBehavior>().PlayerTakeDamage(attackDamage);
         }
+        Physics2D.IgnoreLayerCollision(9,8);
     }
 }

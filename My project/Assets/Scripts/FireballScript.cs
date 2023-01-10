@@ -21,5 +21,6 @@ public class FireballScript : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 }

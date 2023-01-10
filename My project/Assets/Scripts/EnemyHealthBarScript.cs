@@ -8,7 +8,6 @@ public class EnemyHealthBarScript : MonoBehaviour
     public Slider EnemyHealthBar;
     public Color High;
     public Color Low;
-    public Vector3 Offset;      
 
     void Update()
     {
@@ -19,7 +18,7 @@ public class EnemyHealthBarScript : MonoBehaviour
     public void SetEnemyCurrentHealth(int currentHealth, int maxHealth)
     {
         //Shows bar only if currentHealth goes below than maxHealth
-        //EnemyHealthBar.gameObject.SetActive(currentHealth < maxHealth);
+        EnemyHealthBar.gameObject.SetActive(currentHealth < maxHealth);
 
         EnemyHealthBar.value = currentHealth;
         EnemyHealthBar.maxValue = maxHealth;

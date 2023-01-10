@@ -30,6 +30,7 @@ public class Shooting : MonoBehaviour
         GameObject Fireball = Instantiate(FireballPrefab, FirePoint.position, FirePoint.rotation);
         rbFireball = Fireball.GetComponent<Rigidbody2D>();
         rbFireball.AddForce(FirePoint.up * fireballSpeed, ForceMode2D.Impulse);
+        Destroy(Fireball, 4f);
     }
 
 
