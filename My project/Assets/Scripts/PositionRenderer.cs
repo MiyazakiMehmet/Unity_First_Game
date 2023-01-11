@@ -8,7 +8,7 @@ public class PositionRenderer : MonoBehaviour
     public int sortingOrderBase = 5000;
     private Renderer myRenderer;
     public int offset = 0;
-
+        
     void Awake()
     {
         myRenderer = gameObject.GetComponent<Renderer>();
@@ -18,4 +18,4 @@ public class PositionRenderer : MonoBehaviour
     {
         myRenderer.sortingOrder = (int)(sortingOrderBase - transform.position.y - offset);
     }
-}
+}   

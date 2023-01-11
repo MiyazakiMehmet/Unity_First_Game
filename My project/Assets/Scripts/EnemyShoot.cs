@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerMovement;
+    //Instance
+    PlayerBehavior playerBehavior;
+
     [SerializeField] private EnemyFollow enemyFollow;
-    [SerializeField] private PlayerBehavior playerBehavior;
+
     Rigidbody2D rbBullet;
     public float bulletSpeed;
     public Transform BulletPoint;
     public GameObject BulletPrefab;
-    public Transform Character;
+    private Transform Character;
     private bool isFacingRight;
 
     //AttackDamage
@@ -20,6 +22,15 @@ public class EnemyShoot : MonoBehaviour
     //Cooldown
     private float shootCounter = 0f;
     public float shootCooldown = 0.3f;
+
+    void Start()
+    {
+        //Creating a instance for prefab
+        playerBehavior = PlayerBehavior.Instance;
+
+        //Creating a gameobject reference since it will be accessable through prefabs
+        Character = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
 
     void Update()
     {

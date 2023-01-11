@@ -5,6 +5,14 @@ using System;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    //Creating an instance of this script to be accessable through prefabs
+    public static PlayerBehavior Instance;
+    
+    void Awake()
+    {
+        Instance = this;
+    }
+
     //This Event helps you to manage to stop actions
     public static event Action playerDeath;
 

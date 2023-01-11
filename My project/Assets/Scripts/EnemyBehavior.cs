@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    [SerializeField] private PlayerBehavior playerBehavior;
+    //Instance
+    PlayerBehavior playerBehavior;
+
     [SerializeField] private EnemyHealthBarScript enemyHealthBar;
 
     public int currentHealth;
@@ -14,6 +16,7 @@ public class EnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerBehavior = PlayerBehavior.Instance;
         currentHealth = maxHealth;
         enemyHealthBar.SetEnemyCurrentHealth(currentHealth, maxHealth);
     }

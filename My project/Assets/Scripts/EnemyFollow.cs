@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    [SerializeField] private PlayerBehavior playerBehavior;
+    //Instance
+    PlayerBehavior playerBehavior;
 
     public Animator animator;
     public float movementSpeed;
     public bool detected = false;
-    public Transform target;
     public float minimumDistance;
     public float maximumDistance;
     private bool isFacingRight;
+
+    private Transform target;
     
     //Weapon Shown
     public GameObject Weapon;
     private bool weaponShow = false;
+
+    void Start()
+    {
+        playerBehavior = PlayerBehavior.Instance;
+
+        //Creating a gameobject reference since it will be accessable through prefabs
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
 
     void Update()
     {
