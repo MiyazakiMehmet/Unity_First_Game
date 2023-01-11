@@ -25,7 +25,10 @@ public class EnemyFollow : MonoBehaviour
         playerBehavior = PlayerBehavior.Instance;
 
         //Creating a gameobject reference since it will be accessable through prefabs
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (playerBehavior.playerAlive)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
     }
 
     void Update()

@@ -412,13 +412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ba29d9d0e6cd64eb6385ca6d29ba53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 706422205425051430, guid: 9b60a41e47800284195b8af6bf9f5b00, type: 3}
   enemyFollow: {fileID: 1732397892337446550}
-  playerBehavior: {fileID: 706422205425051432, guid: 9b60a41e47800284195b8af6bf9f5b00, type: 3}
   bulletSpeed: 40
   BulletPoint: {fileID: 2396739783741068418}
   BulletPrefab: {fileID: 3242861179336191264, guid: 74e710aee0d8a8448a6b5bf28aa753be, type: 3}
-  Character: {fileID: 706422205425051431, guid: 9b60a41e47800284195b8af6bf9f5b00, type: 3}
   attackDamage: 0
   shootCooldown: 1
 --- !u!1 &7281028380012260049
@@ -656,9 +653,8 @@ MonoBehaviour:
   animator: {fileID: 8083122377917830382}
   movementSpeed: 2
   detected: 0
-  target: {fileID: 8225379859016638497, guid: 9b60a41e47800284195b8af6bf9f5b00, type: 3}
   minimumDistance: 4
-  maximumDistance: 6
+  maximumDistance: 10
   Weapon: {fileID: 6481346559784131182}
 --- !u!114 &3928412129640031380
 MonoBehaviour:

@@ -29,7 +29,10 @@ public class EnemyShoot : MonoBehaviour
         playerBehavior = PlayerBehavior.Instance;
 
         //Creating a gameobject reference since it will be accessable through prefabs
-        Character = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (playerBehavior.playerAlive)
+        {
+            Character = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
     }
 
     void Update()
